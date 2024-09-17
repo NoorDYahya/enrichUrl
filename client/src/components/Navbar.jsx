@@ -35,17 +35,17 @@ const Navbar = ({ onSearch }) => {
 const styles = {
     navbar: {
         width: '100%',
-        backgroundColor: 'white', // Change background color to white
-        color: '#333', // Dark text color for contrast
+        backgroundColor: 'white', 
+        color: '#333', 
         padding: '10px 0',
         position: 'fixed',
         top: 0,
         left: 0,
         zIndex: 1000,
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Add a subtle shadow
-        borderBottom: '1px solid #ddd', // Add a border at the bottom
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', 
+        borderBottom: '1px solid #ddd', 
     },
-    title:{ color: '#555' },
+    title:{ color: '#8a21ed' },
     container: {
         display: 'flex',
         justifyContent: 'space-between',
@@ -69,7 +69,7 @@ const styles = {
         padding: '5px 10px',
         borderRadius: '4px',
         border: '1px solid #555', 
-        backgroundColor: '#555',
+        backgroundColor: '#8a21ed',
         color: 'white',
         cursor: 'pointer',
     }

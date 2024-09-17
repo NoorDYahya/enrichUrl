@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# Enriched URLs Display
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a React application that fetches and displays enriched URL data from external APIs. It allows users to search for URLs based on country and view detailed information about each URL.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Navbar**: Provides a search bar to filter URLs by country.
+- **UrlsList**: Displays a list of enriched URLs, grouped and sorted by country.
+- **Error Handling**: Shows error messages if data fetching fails.
+- **Bootstrap Integration**: Utilizes Bootstrap for responsive design and styling.
 
-### `npm start`
+## Components
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### `Navbar.jsx`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The `Navbar` component provides a search interface for filtering URLs by country. It contains:
 
-### `npm test`
+- **Search Bar**: Users can input a search term to filter URLs.
+- **Submit Button**: Triggers the search based on the input term.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `UrlItem.jsx`
 
-### `npm run build`
+The `UrlItem` component displays individual URL details in a card format using Bootstrap classes. Each card shows:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **URL**: A clickable link to the URL.
+- **Name**: The name associated with the URL.
+- **Employees**: Estimated number of employees.
+- **Annual Revenue**: Annual revenue of the associated entity.
+- **Country**: Country of the entity.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `UrlsList.jsx`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The `UrlsList` component manages the display of enriched URLs. It:
 
-### `npm run eject`
+- **Filters URLs**: Based on the search term provided by the `Navbar`.
+- **Groups URLs**: By country.
+- **Sorts URLs**: Within each country group by estimated number of employees.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### `App.js`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The main application component that:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Fetches Data**: Retrieves URL data and enrichment details from external APIs.
+- **Processes Data**: Extracts, enriches, and stores URL data.
+- **Handles Errors**: Displays error messages if fetching data fails.
+- **Renders Components**: Displays the `Navbar` and `UrlsList` components.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Setup
 
-## Learn More
+To set up the project locally, follow these steps:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. **Clone the Repository**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   git clone https://github.com/yourusername/enriched-urls-display.git
+   cd enriched-urls-display
+   ```
 
-### Code Splitting
+2. **Install Dependencies**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   Make sure you have Node.js installed. Then, run:
 
-### Analyzing the Bundle Size
+   ```bash
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3. **Start the Application**
 
-### Making a Progressive Web App
+   ```bash
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Backend
 
-### Advanced Configuration
+A backend was implemented to handle data storage and management; however, it was found to be unnecessary for this simple case. The application directly fetches data from external APIs and processes it on the frontend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Technologies Used
 
-### Deployment
+### Frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **React**: For building the user interface.
+- **Bootstrap**: For responsive design and styling.
+- **Fetch API**: For retrieving data from external sources.
 
-### `npm run build` fails to minify
+### Backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Express**: For building the user interface.
+- **mongoose**: For responsive design and styling.
+- **multer**: For retrieving data from external sources.
+
+## Data Handling
+
+- **Missing URLs**: Handled cases where URLs were missing in the messages.json file by providing appropriate warnings and fallback values.
+- **Missing Data**: Managed situations where enrichment data was missing in data.json by setting default values and ensuring that the application remains functional.
+
+## APIs
+
+- **URLs API**: https://cdn.taboola.com/mobile-config/home-assignment/messages.json
+- **Enrichment API**: https://cdn.taboola.com/mobile-config/home-assignment/data.json
+
+mongodb endpoint but where not used in this case:
+
+- **saveuRL**: http://localhost:3000/urls/saveEnrichedUrl
+- **getUrl**: http://localhost:3000/urls/getEnrichedUrl
+
+## Notes
+
+- The application is designed to handle and display data dynamically based on the JSON files provided.
+- Bootstrap is used for styling and layout, ensuring the application is responsive and visually appealing.

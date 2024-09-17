@@ -12,7 +12,7 @@ const UrlItem = ({ urlData }) => {
         </div>
         <ul className="list-group list-group-flush">
           <li className="list-group-item">URL: <a href={url} target="_blank" rel="noopener noreferrer">{url}</a></li>
-          <li className="list-group-item">Employees: {est_emp}</li>
+          <li className="list-group-item">Estimated Employees: {est_emp}</li>
           <li className="list-group-item">Annual Revenue: {annual_rev === -1 ? 'Not Available' : annual_rev}</li>
         </ul>
       </div>
