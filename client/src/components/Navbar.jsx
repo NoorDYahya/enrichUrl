@@ -16,7 +16,7 @@ const Navbar = ({ onSearch }) => {
     return (
         <nav style={styles.navbar}>
             <div style={styles.container}>
-                <h1>Enriched URLs</h1>
+            <h1 style={styles.title}>Enriched URLs</h1>
                 <form onSubmit={handleSearchSubmit} style={styles.form}>
                     <input
                         type="text"
@@ -45,6 +45,7 @@ const styles = {
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Add a subtle shadow
         borderBottom: '1px solid #ddd', // Add a border at the bottom
     },
+    title:{ color: '#555' },
     container: {
         display: 'flex',
         justifyContent: 'space-between',
@@ -61,13 +62,13 @@ const styles = {
         padding: '5px',
         marginRight: '10px',
         borderRadius: '4px',
-        border: '1px solid #ddd', // Add border to the input
+        border: '1px solid #ddd', 
         outline: 'none',
     },
     button: {
         padding: '5px 10px',
         borderRadius: '4px',
-        border: '1px solid #555', // Border for the button
+        border: '1px solid #555', 
         backgroundColor: '#555',
         color: 'white',
         cursor: 'pointer',

@@ -25,6 +25,7 @@ const App = () => {
         const urls = await urlsResponse.json();
         const enrichData = await enrichResponse.json();
 
+        // extract the url from the message.json
         const extractedUrls = urls.map(item => {
           try {
             const link = item._source?.message?.[0]?.link?.url;
@@ -47,7 +48,9 @@ const App = () => {
             return null;
           }
         }).filter(url => url !== null);
+        
 
+        // create the enriched data of each url from the data.json
         const enrichedList = extractedUrls.map(url => {
           const enrich = enrichData.find(en => en.url === url.url);
 
@@ -87,7 +90,7 @@ const App = () => {
   return (
     <div>
       <Navbar onSearch={handleSearch} />
-      <div style={{ marginTop: '200px'}}> {/* Adjust margin to avoid overlap with the fixed navbar */}
+      <div style={{ marginTop: '200px'}}> {}
         <UrlsList enrichedUrls={enrichedUrls} searchTerm={searchTerm} />
       </div>
     </div>
