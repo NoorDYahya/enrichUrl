@@ -21,6 +21,7 @@ const UrlsList = ({ enrichedUrls, searchTerm }) => {
   const sortedCountries = Object.keys(groupedUrls).sort();
 
   return (
+    
     <div className="container mt-5">
       {sortedCountries.length > 0 ? (
         sortedCountries.map(country => (
@@ -44,5 +45,4 @@ const UrlsList = ({ enrichedUrls, searchTerm }) => {
     </div>
   );
 };
-
 export default UrlsList;
